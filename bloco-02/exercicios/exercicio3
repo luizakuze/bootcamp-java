@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class MainContaBancaria {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicita ao usuário o saldo inicial da conta 
+        double saldoInicial = scanner.nextDouble();
+
+        // Cria uma nova conta bancária com o saldo inicial fornecido
+        ContaBancaria conta = new ContaBancaria(saldoInicial);
+
+        // Solicita ao usuário para realizar um depósito 
+        double valorDeposito = scanner.nextDouble();
+        conta.depositar(valorDeposito);
+
+        // Solicita ao usuário para realizar um saque 
+        double valorSaque = scanner.nextDouble();
+        conta.sacar(valorSaque);
+
+        // Fechar o scanner para evitar vazamentos de recursos
+        scanner.close();
+    }
+}
+
+class ContaBancaria {
+    private double saldo;
+
+    // Construtor para inicializar a conta com um saldo inicial
+    public ContaBancaria(double saldoInicial) {
+        this.saldo = saldoInicial;
+    }
+
+    // Método para realizar um depósito na conta
+    public void depositar(double valor) {
+        this.saldo += valor;
+        System.out.println("Deposito feito.");
+        imprimirSaldo();
+    }
+
+    // Método para realizar um saque na conta
+    public void sacar(double valor) {
+        if (valor <= this.saldo) {
+            this.saldo -= valor;
+            System.out.println("Saque feito.");
+        } else {
+            System.out.println("Saldo insuficiente. Saque não realizado.");
+        }
+        imprimirSaldo();
+    }
+    
+    // Método privado para imprimir o saldo atual da conta
+    private void imprimirSaldo() {
+        System.out.printf("Saldo atual: %.1f\n", this.saldo);
+    }
+}

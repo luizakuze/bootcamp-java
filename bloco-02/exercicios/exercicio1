@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class RegistroTransacoesBancarias {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Lê a entrada que informa o saldo inicial da conta
+        double saldo = scanner.nextDouble();
+
+        // Lê a entrada com a quantidade total de transações
+        int quantidadeTransacoes = scanner.nextInt();
+
+        // Lista para armazenar as transações
+        List<String> transacoes = new ArrayList<>();
+
+        // Loop para iterar sobre as transações
+        for (int i = 1; i <= quantidadeTransacoes; i++) {
+            // Lê a entrada com o tipo de transação (D para depósito ou S para saque)
+            String tipoTransacao = scanner.next().toLowerCase();
+            
+            // Lê a entrada com o valor da transação
+            double valorTransacao = scanner.nextDouble();
+
+            // Processa a transação e atualiza o saldo
+            if (tipoTransacao.equals("d")) {
+                saldo += valorTransacao;
+                transacoes.add("Deposito de " + valorTransacao);
+            } else if (tipoTransacao.equals("s")) {
+                saldo -= valorTransacao;
+                transacoes.add("Saque de " + valorTransacao);
+            } else {
+                i--; // Decrementa o índice para repetir a iteração
+            }
+        }
+
+        // Exibe o saldo final da conta
+        System.out.println("Saldo: " + saldo);
+        // Exibe a lista de transações
+        System.out.println("Transacoes:");
+        for (int i = 0; i < transacoes.size(); i++) {
+            System.out.println((i + 1) + ". " + transacoes.get(i));
+        }
+
+        // Fechar o scanner para evitar vazamentos de recursos
+        scanner.close();
+    }
+}
