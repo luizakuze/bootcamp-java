@@ -1,5 +1,5 @@
 package engtelecom.poo;
-
+  
 public class App2 {
     public static void main(String[] args) {
         Tele t = new Tele(444, 444);

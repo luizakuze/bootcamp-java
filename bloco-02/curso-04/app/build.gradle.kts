@@ -26,7 +26,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("engtelecom.poo.App2")
+    mainClass.set("C:\Users\Luiza\bootcamp-java\bloco-02\curso-04\app\src\main\java\engtelecom\poo\App2.java")
 }
 
 tasks.named<Test>("test") {

@@ -7,7 +7,12 @@ public class Celular extends DispositivoEletronico {
     }
 
     @Override
-    public double verificaTamanho() {
-        return 123;
+    public double verificaTamanho() { 
+        return 111111;
+    }
+
+    @Override
+    public void ligar() {
+        System.out.println("Celular ligando!");
     }
 }
