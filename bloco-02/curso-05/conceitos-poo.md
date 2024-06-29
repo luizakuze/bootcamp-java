@@ -48,7 +48,8 @@ for(int i = 0; i < 4; i++){
 - Como não é possível herdar de duas classes... Resolvemos o problema com a interface.
 - É semelhante a classe abstrata, porém somente contém somente constantes e métodos abstratos.
 - Não pode ser instanciada.
-
+- Por padrão, atributos: public, static e final (constante).
+- Por padrão, métodos: public
 ```java
 
 ```
