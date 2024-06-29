@@ -1,6 +1,6 @@
 package  engtelecom.poo;
 
-public class Celular extends DispositivoEletronico {
+public class Celular extends DispositivoEletronico implements Servicos {
 
     public Celular(double frequencia, double tamanho) {
         super(frequencia, tamanho);
@@ -14,5 +14,10 @@ public class Celular extends DispositivoEletronico {
     @Override
     public void ligar() {
         System.out.println("Celular ligando!");
+    }
+
+    @Override
+    public void mudarPlanoDeFundo() {
+        System.out.println("Mudando de plano!!!");
     }
 }
