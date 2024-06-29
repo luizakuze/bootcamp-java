@@ -1,4 +1,4 @@
-package main.java.engtelecom.poo;
+package  engtelecom.poo;
 
 public class Carta {
     private Naipe naipe;
@@ -11,10 +11,7 @@ public class Carta {
     public Naipe getNaipe() {
         return naipe;
     }
-
-    public Valor getValor() {
-        return valor;
-    }
+ 
 
     public String toString(){
         return "" + this.naipe.simbolo;

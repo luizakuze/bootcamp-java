@@ -1,4 +1,4 @@
-package main.java.engtelecom.poo;
+package engtelecom.poo;
 
 public enum Naipe {
     
@@ -17,5 +17,10 @@ public enum Naipe {
         simbolo = s;
     }
 
+    public char getSimbolo() {
+        return simbolo;
+    }
+
+    
 
 }
