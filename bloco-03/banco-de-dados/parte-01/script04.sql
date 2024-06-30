@@ -1,11 +1,53 @@
--- Adicionando chaves primárias
-alter table usuarios
-modify column id int auto_increment,
-add primary key (id);
+-- Primary Key --
+-- Tabela "usuarios"
+ALTER TABLE usuarios
+MODIFY COLUMN id INT AUTO_INCREMENT,
+ADD PRIMARY KEY (id);
 
-alter table destinos
-modify column id int AUTO_INCREMENT,
-add primary key (id);
+-- Tabela "destinos"
+ALTER TABLE destinos
+MODIFY COLUMN id INT AUTO_INCREMENT,
+ADD PRIMARY KEY (id);
 
--- Adicionando chaves primárias e estrangeiras
--- Chave estrangeira para referência dos usuários e destinos
+-- Tabela "reservas"
+ALTER TABLE reservas
+MODIFY COLUMN id INT AUTO_INCREMENT,
+ADD PRIMARY KEY (id);
+
+-- Exemplos --
+-- Inserção na tabela "usuarios"
+INSERT INTO usuarios (nome, email, data_nascimento, endereco)
+VALUES ('João Maria', 'joaomaria@example.com', '1990-01-01', 'Rua A, 123');
+
+-- Inserção na tabela "destinos"
+INSERT INTO destinos (nome, descricao)
+VALUES ('Praia Teste', 'Destino paradisíaco com belas praias.');
+
+-- Inserção na tabela "reservas"
+INSERT INTO reservas (id_usuario, id_destino, data, status)
+VALUES (4, 4, '2023-07-01', 'pendente');
+
+-- Chaves estrangeiras --
+-- Adicionando chave estrangeira na tabela "reservas" referenciando a tabela "usuarios"
+ALTER TABLE reservas
+ADD CONSTRAINT fk_reservas_usuarios
+FOREIGN KEY (id_usuario) REFERENCES usuarios(id);
+
+-- Adicionando chave estrangeira na tabela "reservas" referenciando a tabela "destinos"
+ALTER TABLE reservas
+ADD CONSTRAINT fk_reservas_destinos
+FOREIGN KEY (id_destino) REFERENCES destinos(id);
+
+-- Alterando a restrição da chave estrangeira "fk_reservas_usuarios" na tabela "reservas" para ON DELETE CASCADE
+-- 1) apagamos a foreign existente
+ALTER TABLE reservas
+DROP FOREIGN KEY fk_reservas_usuarios;
+ 
+-- 2) adicionando a nova restrição
+alter table reservas
+add constraint fk_reservas_usuarios
+FOREIGN key (id_usuario) references usuarios(id)
+on delete cascade;
+
+-- 3) apagará todos os registros filhos ao apagar o registro pai
+delete from usuarios where id = 1;

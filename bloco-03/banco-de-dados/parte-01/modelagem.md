@@ -137,3 +137,14 @@ add constraint {nome_constraint}
 foreign key (id)
 references {outra_tabela} (id)
 ```
+## Registro pai e filho
+### Registro Pai
+O registro pai reside na tabela que contém a chave primária (primary key).  
+
+### Registro Filho
+O registro filho reside na tabela que contém a chave estrangeira (foreign key), que é usada para referenciar a chave primária na tabela pai. 
+
+### Regras Gerais para Identificar Pai e Filho
+- ``Um-para-Muitos``: A entidade que pode ter múltiplas ocorrências associadas (muitos) será a filha. A entidade singular (um) será a pai. Exemplo: Clientes e Pedidos (Cliente é pai, Pedidos são filhos)
+- ``Muitos-para-Muitos``: Use uma tabela de junção que referencia ambas as tabelas. Exemplo: Estudantes e Cursos (tabela de junção Estudantes_Cursos)
+- ``Um-para-Um``: Decida a tabela pai com base na lógica de negócio ou frequência de uso. Geralmente, a entidade que agrega ou gerencia a outra é considerada a pai. Exemplo: Pessoa e Passaporte (Pessoa é pai, Passaporte é filho)
