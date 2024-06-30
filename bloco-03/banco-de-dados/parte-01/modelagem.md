@@ -64,6 +64,7 @@ where {condicao};
 - `<>` ou `!=`: Diferente.
 
 ## Comando: UPDATE
+- Modificar a estrutura já existente de um registro.
 ```sql
 update {tabela}
 set
@@ -73,11 +74,66 @@ where
  {condicao};
 ```
 
-## Comando: UPDATE
+## Comando: DELETE
+- Exclui permanentemente um registro.
 
 ```sql
 delete from 
  {tabela}
 where
  {condicao};
+```
+
+## Comando: DROP TABLE
+- Exclui permanentemente uma tabela.
+```sql
+drop table {tabela}
+```
+
+## Comando: ALTER TABLE
+- Modificar a estrutura já existente de uma tabela.
+```sql
+drop table {tabela}
+```
+
+## Chave Primária
+- Identifica exclusivamente, ÚNICA por tabela.
+- Não pode conter null values.
+
+### Adicionando a primary key na criação da tabela
+```sql
+create table {tabela}
+(id primary key autoincrement, 
+...);
+```
+### Adicionando a primary key quando a tabela já está criada
+```sql
+alter table {tabela}
+modify column id int primary key
+```
+
+## Chave Estrangeira
+- Manter integridade dos dados entre tabelas relacionadas
+- Pode ser null (registro órfão).
+- Pode haver mais de uma (ou nenhuma) por tabela.
+
+### Cláusulas
+- `ON DELETE`:Especifica o que acontece com registros filhos quando um registro pai é excluído.
+- `ON UPDATE`: Especifica comportamento do registro filho quando registro pai for alterado.
+- `CASCADE`, ``SET NULL`, `SET DEFAULT` e `RESTRICT`.
+
+### Adicionando a foreign key na criação da tabela
+```sql
+create table `tabela` (
+ id int primary key, 
+ chave_estrangeira int,
+foreign key {chave_estrangeira} references {outra_tabela} (id)
+);
+```
+### Adicionando a foreign key na tabela existente
+```sql
+alter table {tabela}
+add constraint {nome_constraint}
+foreign key (id)
+references {outra_tabela} (id)
 ```

@@ -40,5 +40,17 @@ INSERT INTO viagens.reservas (id, id_usuario, id_destino, data, status) VALUES
 
 
 -- SELECT
-## Selecionando todas as tabelas da coluna usuários que tenha id=1 e "a" no nome
+-- Selecionando todas as tabelas da coluna usuários que tenha id=1 e "a" no nome
 select * from viagens.usuarios where id=1 or nome like "a"
+
+-- Selecionar os usuários que nasceram antes de uma determinada data
+SELECT * FROM usuarios WHERE data_nascimento < '1990-01-01';
+
+-- UPDATE
+update viagens.usuarios 
+set id=4 
+where email = "joao@example.com";
+
+-- DELETE
+delete from viagens.destinos
+where nome = "Praia do Rosa"
