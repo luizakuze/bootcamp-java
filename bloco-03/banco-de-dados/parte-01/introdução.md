@@ -1,6 +1,5 @@
 # Anotações Gerais
 
-Link montar diagramas: `https://app.quickdatabasediagrams.com/#/`
 
 ## Tipos de Banco de Dados
 - Relacionais (SQL)
@@ -41,3 +40,9 @@ Link montar diagramas: `https://app.quickdatabasediagrams.com/#/`
 - Relacionamento 1..1 (um para um)
 - Relacionamento 1..n ou 1..* (um para muitos)
 - Relacionamento n..n ou *..* (muitos para muitos)
+
+## MER e DER
+- MER: Modelo Entidade-Relacionamento.
+- DER: Diagramas Entidade-Relacionamento (utilizados no MER).
+
+Link montar diagramas: `https://app.quickdatabasediagrams.com/#/`
