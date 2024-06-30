@@ -62,3 +62,22 @@ where {condicao};
 - `AND`: E lógico.
 - `OR`: Ou lógico.
 - `<>` ou `!=`: Diferente.
+
+## Comando: UPDATE
+```sql
+update {tabela}
+set
+ {coluna1} = {novo_valor1}
+ {coluna2} = {novo_valor2}
+where
+ {condicao};
+```
+
+## Comando: UPDATE
+
+```sql
+delete from 
+ {tabela}
+where
+ {condicao};
+```
