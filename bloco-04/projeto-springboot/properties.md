@@ -1,0 +1,1 @@
+Interações com banco de dados, configurações da aplicação e relações ficam nesse arquivo: `\src\main\resources\application.properties`.
